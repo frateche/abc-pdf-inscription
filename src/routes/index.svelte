@@ -11,8 +11,6 @@ template.schemas = [ {}, {}];
 let inputs = [{}];
 let checkboxes = [];
 
-console.log($page.url.href);
-
 // Fill object async
 fetch(assets+"/labelmake-template.json").then( (resp) => resp.json() ).then(
     data => {
@@ -37,7 +35,7 @@ const toggle = (e) => {
     inputs[0][e] = (inputs[0][e] === "x") ? "" : "x";
 }
 
-// Convert date to csv
+// Convert data to csv
 $: to_csv = () => {
     return `${Object.keys(inputs[0]).join(";")}\n${Object.values(inputs[0]).join(";")}`;
 }
